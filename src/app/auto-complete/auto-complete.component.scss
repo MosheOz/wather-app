@@ -1,0 +1,13 @@
+.autoComplete {
+  max-width: 650px;
+  margin: 0 auto;
+
+  &__form {
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  &__field-width {
+    width: 100%;
+  }
+}

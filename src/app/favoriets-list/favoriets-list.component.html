@@ -1,0 +1,14 @@
+<div *ngIf="favoritesList$ | async as favoritesList" class="favoriets-list">
+    <div *ngFor="let f of favoritesList" class="favoriets-list__wrapper" (click)="onFavoriteClicked(f)"
+        routerLink="'/home'">
+        <span class="favoriets-list__name">{{ f.name }}</span>
+        <span class="favoriets-list__high">{{f.weather | round}}°</span>
+        <div class="favoriets-list__img-container">
+            <img alt="icon-weather" src="https://www.accuweather.com/images/weathericons/{{f.icon}}.svg">
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!(favoritesList$ | async).length" class="favoriets-list">
+    <span class="favoriets-list__name">No Favoriets Places Exists</span>
+</div>

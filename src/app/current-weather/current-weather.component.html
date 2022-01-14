@@ -1,0 +1,20 @@
+<div class="currentWeather" *ngIf="optionSelected$ | async as optionSelected">
+    <div>
+        <span class="currentWeather__name">{{optionSelected.name}}</span>
+        <div class="currentWeather__wrapper" *ngIf="(currentWeather$ | async) as currentWeather">
+            <span class="currentWeather__high" #wather>{{currentWeather[0]?.Temperature?.Imperial?.Value |
+                round}}°</span>
+            <div class="currentWeather__img-container" *ngIf="(currentWeather$ | async) as currentWeather">
+                <img alt="icon-weather"
+                    src="https://www.accuweather.com/images/weathericons/{{currentWeather[0].WeatherIcon}}.svg">
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="(currentWeather$ | async) as currentWeather">
+        <button mat-fab class="currentWeather__button-container"
+            (click)="onAddToFavorite(optionSelected, currentWeather[0]?.Temperature?.Imperial?.Value, currentWeather[0].WeatherIcon)">
+            <mat-icon>favorite</mat-icon>
+        </button>
+    </div>
+</div>

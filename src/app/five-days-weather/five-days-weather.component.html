@@ -1,0 +1,41 @@
+<app-current-weather></app-current-weather>
+<div *ngIf="fiveDaysDisplay$ | async as fiveDaysDispaly" class="fiveDaysDisplay">
+    <div class="fiveDaysDisplay__header-wrapper">
+        <div class="fiveDaysDisplay__high">
+            {{fiveDaysDispaly.Headline.EffectiveDate | date}} - {{fiveDaysDispaly.Headline.EndDate | date}}
+        </div>
+    </div>
+    <div class="fiveDaysDisplay__wrapper">
+        <div *ngFor="let d of fiveDaysDispaly.DailyForecasts" class="fiveDaysDisplay__daily-wrapper">
+            <div class="fiveDaysDisplay__daily-wrapper__first-section">
+                <span class="fiveDaysDisplay__high">{{d.Date | date}}</span>
+                <div>
+                    <span class="fiveDaysDisplay__high">{{d.Temperature.Maximum.Value | round}}°</span>
+                    <span class="fiveDaysDisplay__low">/{{d.Temperature.Minimum.Value | round}}°</span>
+                </div>
+            </div>
+            <div>
+                <div class="fiveDaysDisplay__wather-details">
+                    <div class="fiveDaysDisplay__icon-container">
+                        <span class="fiveDaysDisplay__low">Day</span>
+                        <div class="fiveDaysDisplay__img-container">
+                            <img alt="icon-weather"
+                                src="https://www.accuweather.com/images/weathericons/{{d.Day.Icon}}.svg">
+                        </div>
+                        <!-- <span>{{d.Day.IconPhrase}}</span> -->
+
+                    </div>
+                    <div class="fiveDaysDisplay__icon-container">
+                        <span class="fiveDaysDisplay__low">Night</span>
+                        <div class="fiveDaysDisplay__img-container">
+
+                            <img alt="icon-weather"
+                                src="https://www.accuweather.com/images/weathericons/{{d.Night.Icon}}.svg">
+                        </div>
+                        <!-- <span>{{d.Night.IconPhrase}}</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

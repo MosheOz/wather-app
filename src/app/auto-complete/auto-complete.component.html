@@ -1,0 +1,16 @@
+<div class="autoComplete">
+    <form class="autoComplete__form" [formGroup]="form">
+        <mat-form-field class="autoComplete__field-width">
+            <mat-label>Location</mat-label>
+            <input type="text" placeholder="Search city" aria-label="Location" matInput [formControl]="searchControl"
+                [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="optionPicked($event)">
+                <mat-option *ngFor="let option of options$ | async" [value]="option.AdministrativeArea.LocalizedName">
+                    {{ option.AdministrativeArea.LocalizedName + '/' + option.Country.LocalizedName}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+
+    <app-five-days-weather></app-five-days-weather>
+</div>

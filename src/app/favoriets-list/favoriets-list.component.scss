@@ -1,0 +1,44 @@
+.favoriets-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
+
+  &__wrapper {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__name {
+    color: #878787;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.08;
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  &__high {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.08;
+  }
+
+  &__img-container {
+    width: 65px;
+    height: 65px;
+
+    & img {
+      width: 100%;
+    }
+  }
+}
